@@ -10,6 +10,7 @@
 		"sourceType": "module"
 	},
 	"rules": {
+		"camelcase": "off",
 		"prettier/prettier": "error",
 		"semi": [
 			"error",
