@@ -1,16 +1,19 @@
-import { PrismaClient } from "@prisma/client";
+import cors from "@fastify/cors";
 import fastify from "fastify";
+import { memoriesRoutes } from "./routes/memories";
 
 const app = fastify();
-const prisma = new PrismaClient();
 
-app.get("/users", async () => {
-    const users = await prisma.user.findMany();
-    return users;
+app.register(cors, {
+  origin: true,
+  // origin: ['https://localhost:3000', 'https://rocketseat.com.br/'],
 });
+app.register(memoriesRoutes);
 
-app.listen({
+app
+  .listen({
     port: 3333,
-}).then(() => {
+  })
+  .then(() => {
     console.log("🚀HTTP server running on https://localhost:3333");
-});
+  });
