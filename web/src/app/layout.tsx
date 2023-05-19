@@ -14,7 +14,7 @@ export const metadata = {
   description: 'Uma cápsula do tempo construída com React, Next.js, Tailwindcss e TypeScript.'
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
       <body
@@ -24,4 +24,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
